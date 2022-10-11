@@ -20,3 +20,8 @@ coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
 
 clean:
 	rm -rf $(EXAMPLES_DIR)/*.pdf
+
+ATOMAKA_DIR = examples/atomaka
+ATOMAKA_SRCS = $(shell find $(ATOMAKA_DIR) -name '*.tex')
+atomaka.pdf: $(EXAMPLES_DIR)/atomaka.tex $(ATOMAKA_SRCS)
+	$(CC) -output-directory=$(EXAMPLES_DIR) $<
